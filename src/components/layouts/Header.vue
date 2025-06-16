@@ -9,7 +9,6 @@
         </NavLink>
       </nav>
     </div>
-    <!-- <div class="h-1 w-full bg-[var(--primary)]"></div> -->
   </header>
 </template>
 

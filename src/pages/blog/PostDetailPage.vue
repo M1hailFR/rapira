@@ -128,21 +128,8 @@
                 <p class="text-xs text-gray-500 mb-2">0.04.2024 в 14:54</p>
               </div>
             </div>
-            <!-- Add more comments here if available in post.comments -->
           </div>
         </div>
-      </div>
-      <div
-        v-else
-        class="container text-center text-gray-500 mt-8 bg-white p-[30px] rounded-xl flex flex-col items-center"
-      >
-        <Icons name="NotFound" />
-        <span class="text-[#7E8299] font-medium text-sm mt-2">
-          Пост не найден
-        </span>
-        <p class="max-w-[300px] text-center text-xs">
-          Повторите поиск или используйте фильтр для структуризации контента
-        </p>
       </div>
     </div>
   </section>
@@ -153,7 +140,6 @@ import { ref, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { posts } from "~/data/posts";
 import Icons from "~/components/ui/icons/Icons.vue";
-import type { Post } from "~/types/post";
 
 const route = useRoute();
 const router = useRouter();
@@ -175,9 +161,8 @@ function cancelComment() {
 
 function submitComment() {
   if (!commentExceedsLimit.value && newCommentText.value.length > 0) {
-    // Implement actual comment submission logic here
     console.log("Submitting comment:", newCommentText.value);
-    alert("Комментарий отправлен: " + newCommentText.value); // For demonstration
+    alert("Комментарий отправлен: " + newCommentText.value);
     newCommentText.value = "";
     isCommentInputActive.value = false;
   } else if (newCommentText.value.length === 0) {
