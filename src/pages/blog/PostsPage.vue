@@ -75,12 +75,17 @@ const categories = [
 ];
 
 const filteredPosts = computed(() => {
-  if (selectedCategories.value.length === 0) return posts;
-  return posts.filter(
-    (post) =>
-      post.categories.some((c) => selectedCategories.value.includes(c.label)) &&
-      post.title.toLowerCase().includes(search.value.toLowerCase())
-  );
+  return posts.filter((post) => {
+    const matchesCategory =
+      selectedCategories.value.length === 0 ||
+      post.categories.some((c) => selectedCategories.value.includes(c.label));
+
+    const matchesSearch = post.title
+      .toLowerCase()
+      .includes(search.value.toLowerCase());
+
+    return matchesCategory && matchesSearch;
+  });
 });
 
 const router = useRouter();
