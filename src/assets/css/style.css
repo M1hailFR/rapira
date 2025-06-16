@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #3e97ff;
+  --primary-light: #eef6ff;
+  --primary-dark: #3d98ff;
+  --primary-active: #2884ef;
+  --bg-dark: #181c32;
+  --text-main: #181c32;
+  --text-muted: #a0aec0;
+  --white: #fff;
+  --black: #000;
+}
+
+.container {
+  @apply mx-auto xl:max-w-[1400px];
+}
+
+.main {
+  @apply bg-[var(--primary-light)];
+}
+
+h1 {
+  @apply text-[24px] md:text-[32px] font-bold;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s, transform 0.3s;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(-40px);
+}
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-enter-active {
+  animation: fadeIn 0.3s ease-out;
+}
